@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seus vídeos</title>
+</head>
+<body>
+    <h1>Página de vídeos</h1>
+    <hr>
+    <h1>Página atual:</h1>
+
+    <% if(playlist && !video){ %>
+        <h2>Nome da Playlist: <%= playlist %></h2>
+        <% if(!video) {
+            listaVideos.forEach((videos) => { %>
+            <p><a href="/videos/<%= playlist%>/<%= videos%>"><%= videos %></a></p>
+            <% }) 
+        } %> 
+    <%} else if(playlist && video){ %>
+        <h2>Nome da Playlist: <%= playlist %> </h2><h2>Nome do vídeo: <%= video%></h2>
+        <p><a href="/videos/<%= playlist%>">Voltar a seleção de Vídeos</a></p>
+    <%} else{ %>
+        <h1>Homepage da página de vídeos!</h1><hr>
+        <h1>Selecione uma playlist:</h1>
+        <% if(!video) {
+            listaPlaylist.forEach((playlist) => { %>
+            <p><a href="/videos/<%= playlist%>"><%= playlist %></a></p>
+          <% }) 
+        } %> 
+
+    <%}%>
+</body>
+</html>
