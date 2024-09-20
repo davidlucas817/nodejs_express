@@ -1,4 +1,19 @@
 <%- include ('partials/navbar.ejs')%>
 <%- include ('partials/header.ejs')%>
 
+
+<center>
+    <h1>Seu perfil</h1>
+    <hr>
+</center>
+
+<%if(!nome){%>
+<img src="imgs/login.jpg" style: height="200"; width="200">
+<h3>Usuário não logado.</h3>
+<p><a href="/perfil/David">Logar como "David"</a></p>
+<%}else{%>
+<h3>Nome do usuário: <%= nome%></h3>
+<p><a href="/perfil">Sair da conta</a></p>
+<%}%>
+
 <%- include ('partials/footer.ejs')%>

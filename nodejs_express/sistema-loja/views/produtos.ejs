@@ -1,21 +1,28 @@
 <%- include ('partials/navbar.ejs')%>
 <%- include ('partials/header.ejs')%>
 
-    <h1>Conheça nossos produtos: </h1>
-    <!-- TAGS EJS chamando a variável que veio do index.js-->
-    <%= produto %>
+    <h1 class="listaproduto">Conheça nossos produtos: </h1>
+    <table>
+      <thead>
+          <tr>
+              <th></th>
+              <th>Brinquedo:</th>
+              <th>Valor:</th>
+              <th>Distribuidor:</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% produto.forEach((produto) => { %>
+          <tr>
+              <td><img src="<%= produto.foto %>" width="200px"></td>
+              <td><%= produto.nome %></td>
+              <td><%= produto.preco%></td>
+              <td><%= produto.distrib%></td>        
+          </tr>
+          <%})%>
+  </tbody>
+</table>
 
-    <!-- Condição para verificar se o produto não foi passado -->
-     <% if (!produto) { %>
-        <p><%= listaProdutos %></p>
-     <% } %>
-
-     <!-- forEach para percorrer a lista de produtos-->
-      <% if(!produto) {
-        listaProdutos.forEach((produto) => { %>
-        <p><a href="/produtos/<%= produto%>"><%= produto %></a></p>
-      <% }) 
-    } %>
 
 
   <%- include ('partials/footer.ejs')%>
