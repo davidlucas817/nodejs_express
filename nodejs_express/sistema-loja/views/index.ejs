@@ -1,0 +1,38 @@
+<%- include ('partials/navbar.ejs')%>
+<%- include ('partials/header.ejs')%>
+
+<div class="container">
+    <div class="jumbotron">
+        <br>
+        <h1 class="display-5"><strong>Bem-vindo(a) ao painel administrativo da nossa loja!</strong></h1>
+        <p class="lead">Para onde vamos hoje?</p>
+        <hr class="my-4">
+        <p class="currentDate"></p>
+        </p>         
+        <p class="lead">
+          <a class="btn btn-info btn-lg" href="/pedidos" role="button">Verificar pedidos</a>
+        </p>
+      </div>
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h1>Para onde deseja ir?</h1>
+        </div>
+        <div class="card-body">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/clientes">Página de Clientes</a></li>
+                <li><a href="/produtos">Página de produtos</a></li>
+                <li><a href="/pedidos">Página de Pedidos</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<%- include ('partials/footer.ejs')%>
