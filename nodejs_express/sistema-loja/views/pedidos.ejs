@@ -1,0 +1,63 @@
+<%- include ('partials/navbar.ejs')%>
+<%- include ('partials/header.ejs')%>
+
+<div class="container">
+  <div class="card">
+      <div class="card-header">
+          <h1>Cadastrar Pedidos</h1>
+      </div>
+      <div class="card-body">
+          <form method="POST" action="/pedidos/new">
+              <label>Id do Pedido:</label>
+              <input type="text" name="idPedido" id="idPedido" placeholder="Insira id do Pedido" class="form-control" required>
+              <label>Preço total do pedido:</label>
+              <input type="text" name="preco" id="preco" placeholder="Insira o preço do pedido" class="form-control" required>
+              <label>Cpf do pedido:</label>
+              <input type="text" name="cpf" id="cpf" placeholder="Insira o cpf de quem pediu" class="form-control" required>                           
+              <label>Status da entrega</label>
+              <input type="text" name="status" id="status" placeholder="Insira o status do pedido" class="form-control" required>                           
+              <br>
+              <button class="btn btn-success">Cadastrar</button>
+          </form>
+      </div>
+</div>
+<h1 class="listaPedidos">Pedidos realizados: </h1>
+    <table>
+      <thead>
+          <tr>
+              <th></th>
+              <th>ID:</th>
+              <th>Preço da venda:</th>
+              <th>Cpf do Comprador:</th>
+              <th>Status da entrega:</th>
+              <th style="text-align: center;" colspan="2">Ações:</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% pedidos.forEach((pedidos) => { %>
+          <tr>
+            <th></th>
+              <td><%= pedidos.idPedido %></td>
+              <td><%= pedidos.preco%></td>
+              <td><%= pedidos.cpf%></td>
+              <td><%= pedidos.status%></td>  
+              <td><a style="color:orange;" href="pedidos/edit/<%= pedidos.id%>">Editar</a></td>
+              <td><a style="color:red;" href="/pedidos/delete/<%= pedidos.id%>">Excluir</a></td>     
+          </tr>
+          <%})%>
+  </tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<%- include ('partials/footer.ejs')%>
